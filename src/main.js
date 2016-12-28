@@ -3,18 +3,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import VueFire from 'vuefire'
-import firebase from 'firebase'
 
-import App from './App'
-import Home from './components/Home'
-import Chat from './components/Chat'
-import Logger from './components/Logger'
+// import App from './App'
+import Hello from './components/Hello'
 
 // We want to apply VueResource and VueRouter to our Vue instance
 Vue.use(VueResource)
 Vue.use(VueRouter)
-Vue.use(VueFire)
 
 /* eslint-disable no-new */
 // new Vue({
@@ -23,16 +18,21 @@ Vue.use(VueFire)
 //   components: { App }
 // })
 
+// 1. Define route components.
+// These can be imported from other files
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+
 // 2. Define some routes
 // Each route should map to a component. The "component" can
 // either be an actual component constructor created via
 // Vue.extend(), or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-  { path: '/home', component: Home },
-  { path: '/chat', component: Chat },
-  { path: '/logger', component: Logger },
-  { path: '*', component: Home }
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar },
+  { path: '/hello', component: Hello },
+  { path: '*', component: Hello }
 ]
 
 // 3. Create the router instance and pass the `routes` option
@@ -46,21 +46,7 @@ const router = new VueRouter({
 // Make sure to inject the router with the router option to make the
 // whole app router-aware.
 new Vue({
-  el: "#app",
-  router,
-  template: '<App/>',
-  data: {
-
-  },
-  computed: {
-
-  },
-  methods: {
-
-  },
-  ready: function(){
-  },
-  render: h => h(App)
-})
+  router
+}).$mount('#app')
 
 // Now the app has started!
