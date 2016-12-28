@@ -1,7 +1,7 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyCV6dm_dKfOuy-CnMurpV_RJjiRp7hTP88",
-  authDomain: "jonah-6d965.firebaseapp.com",
-  databaseURL: "https://jonah-6d965.firebaseio.com",
-  storageBucket: "jonah-6d965.appspot.com",
-  messagingSenderId: "749894228558"
+  apiKey: "AIzaSyCqA82Pfk-XTVUGfcb7BlNok6TMyVRAyWk",
+  authDomain: "yonsel-ae20b.firebaseapp.com",
+  databaseURL: "https://yonsel-ae20b.firebaseio.com",
+  storageBucket: "yonsel-ae20b.appspot.com",
+  messagingSenderId: "1098171935126"
 };
