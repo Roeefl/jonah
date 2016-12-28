@@ -2,7 +2,8 @@
   <div class="chat">
     <h1>{{ msg }}</h1>
 
-    <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+    <div  id="messages-card"
+          class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
 
       <div class="mdl-layout__header">
         <div class=" mdl-layout__header-row">
@@ -29,15 +30,8 @@
             Send
           </button>
         </form>
-        <div class="mdl-layout-spacer"></div>
-        <form id="image-form" action="#">
-          <input id="mediaCapture" type="file" accept="image/*,capture=camera">
-          <button disabled='true' id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
-            <i class="material-icons md-36 md-light md-inactive">image</i>
-          </button>
-        </form>
       </div>
-
+      
     </div>
 
   </div>
@@ -51,11 +45,11 @@
 
   // Firebase Configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyCqA82Pfk-XTVUGfcb7BlNok6TMyVRAyWk",
-    authDomain: "yonsel-ae20b.firebaseapp.com",
-    databaseURL: "https://yonsel-ae20b.firebaseio.com",
-    storageBucket: "yonsel-ae20b.appspot.com",
-    messagingSenderId: "1098171935126"
+    apiKey: "AIzaSyCV6dm_dKfOuy-CnMurpV_RJjiRp7hTP88",
+    authDomain: "jonah-6d965.firebaseapp.com",
+    databaseURL: "https://jonah-6d965.firebaseio.com",
+    storageBucket: "jonah-6d965.appspot.com",
+    messagingSenderId: "749894228558"
   }
 
   // Init firebase
@@ -80,5 +74,42 @@
 </script>
 
 <style scoped>
+  #message-form {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 48px);
+    float: left;
+  }
+    #message-form .mdl-textfield {
+      width: calc(100% - 100px);
+    }
+    #message-form .mdl-textfield__label:after {
+      background-color: #0288D1;
+    }
+    #message-form .mdl-textfield-floating-label.is-focused .mdl-textfield__label {
+      color: #0288D1;
+    }
 
+  #image-form {
+    display: flex;
+    flex-direction: row;
+    width: 48px;
+    float: right;
+  }
+    #image-form #submitImage {
+      width: auto;
+      padding: 0 6px 0 1px;
+      min-width: 0;
+    }
+      #image-form #submitImage .material-icons {
+        top: -1px;
+      }
+
+  #message-form button, #image-form button {
+    width: 100px;
+    margin: 15px 0 0 10px;
+  }
+   #image-form #mediaCapture {
+      display: none;
+    }
 </style>

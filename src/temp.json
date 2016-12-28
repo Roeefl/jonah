@@ -1,0 +1,7 @@
+firebase: {
+  contentDb: fireDb.ref(contentPath),
+  logDb: fireDb.ref(logPath).limitToLast(30)
+}
+
+
+     

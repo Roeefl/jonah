@@ -1,5 +1,7 @@
 {
   "projects": {
-    "yonsel": "yonsel-ae20b"
+    "yonsel": "yonsel-ae20b",
+    "jonah": "jonah-6d965",
+    "jonah_local": "jonah-6d965"
   }
 }

@@ -64,3 +64,28 @@ new Vue({
 })
 
 // Now the app has started!
+
+/* -- Initialize App -- */
+window.onload = function() {
+  // Update scrolling in chat after messages have finished loading
+  // $('#messages').bind('DOMNodeInserted', this.chatScrollTop.bind(this));
+  // $('#logger').bind('DOMNodeInserted', this.loggerScrollTop.bind(this));
+
+  // Firebase Configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCV6dm_dKfOuy-CnMurpV_RJjiRp7hTP88",
+    authDomain: "jonah-6d965.firebaseapp.com",
+    databaseURL: "https://jonah-6d965.firebaseio.com",
+    storageBucket: "jonah-6d965.appspot.com",
+    messagingSenderId: "749894228558"
+  }
+
+  // Init firebase
+  const fireApp = firebase.initializeApp(firebaseConfig);
+  alert(fireApp);
+
+  // Shortcuts to Firebase SDK features.
+  this.auth = firebase.auth();
+  this.database = firebase.database(); 
+  this.storage = firebase.storage();
+};
