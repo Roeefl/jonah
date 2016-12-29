@@ -1,8 +1,7 @@
 <template>
   <form class="create-item" @submit.prevent="createItem()">
-    <input name="title" v-model="title" placeholder="Title"/>
-    <textarea name="snippet" v-model="snippet" placeholder="Say a few words about this..." rows="2">
-    </textarea>
+    <input class="input-item-title" name="title" v-model="title" placeholder="Title" />
+    <input class="input-item-snippet" name="snippet" v-model="snippet" placeholder="Say a few words about this..." />
     <button type="submit">+</button>
   </form>
 </template>
@@ -42,8 +41,8 @@
   }
 </script>
 
-<style>
-  form.create-item{
+<style scoped>
+  form.create-item {
     position: relative;
     width: 480px;
     margin: 15px auto;
@@ -52,14 +51,13 @@
     border-radius: 2px;
     box-shadow: 0 1px 5px #ccc;
   }
-  form.create-item input, form.create-item textarea{
+  form.create-item input {
     width: 100%;
     border: none;
     padding: 4px;
     outline: none;
-    font-size: 1.2em;
   }
-  form.create-item button{
+  form.create-item button {
     position: absolute;
     right: 18px;
     bottom: -18px;
@@ -73,4 +71,10 @@
     cursor: pointer;
     outline: none;
   }
+    form.create-item .input-item-title {
+      font-size: 1.4em;
+    }
+    form.create-item .input-item-snippet {
+      font-size: 1em;
+    }
 </style>

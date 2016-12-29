@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img id="logo" src="./assets/treasure.svg" @click="stopAnimation()">
+    <img id="logo" :class="{'animated-logo': isAnimated}" src="./assets/stash.svg" @click="toggleAnimation()">
     <CreateItem></CreateItem>
     <Index></Index>
   </div>
@@ -16,9 +16,14 @@
       Index,
       CreateItem
     },
+    data () {
+      return {
+        isAnimated: true
+      }
+    },
     methods: {
-      stopAnimation: function() {
-        alert('stop')
+      toggleAnimation: function() {
+        this.isAnimated = !this.isAnimated
       }
     }
   }
@@ -37,6 +42,7 @@
     background: #eee;
     padding: 0 16px;
   }
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -46,18 +52,28 @@
     margin-top: 60px;
     color: #000;
   }
+
   #logo {
     width: 128px;
     height: 128px;
     margin-bottom: 20px;
-    animation: App-logo-spin 20s linear;
-    animation-iteration-count: infinite;
+    cursor: pointer;
   }
-
-  @keyframes App-logo-spin {
-    0% { transform: rotate(-180deg); }
-    50% { transform: rotate(180deg); }
-    100% { transform: rotate(-180deg); }
+  .animated-logo {
+    /* animation: App-logo-spin 10s linear;
+    animation-iteration-count: infinite; */
   }
+    @keyframes App-logo-spin {
+      0% { transform: rotate(360deg); }
+      50% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
+   /* Sizes for Material Icons */
+  .material-icons.md-18 { font-size: 18px; }
+  .material-icons.md-24 { font-size: 24px; }
+  .material-icons.md-30 { font-size: 30px; }
+  .material-icons.md-36 { font-size: 36px; }
+  .material-icons.md-48 { font-size: 48px; }
+  .material-icons.md-fire { color: rgb(245, 130, 12); }
 </style>

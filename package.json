@@ -1,7 +1,7 @@
 {
-  "name": "jonah",
+  "name": "Jonah",
   "version": "1.0.0",
-  "description": "Group dump app",
+  "description": "Group Stash",
   "author": "Roee FL <roeefl@gmail.com>",
   "private": true,
   "scripts": {

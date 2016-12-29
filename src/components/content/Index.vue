@@ -1,8 +1,8 @@
 <template>
 	<div class="items" :ref="content">
 		<ul>
-			<Item		v-for="item in content"
-							:item="item" >
+			<Item v-for="item in content"
+						:item="item" >
 			</Item>
 		</ul>
 	</div>
@@ -11,7 +11,6 @@
 <script>
 	import firebase from 'firebase'
 	import Item from './Item'
-
 	var fireSettings = require ('../../firebase-settings.js')
 
 	// Initialize Firebase
@@ -26,10 +25,10 @@
 		},
 
 		mounted: function () {
-			firebase.initializeApp(fireSettings.config)
+			const fireApp = firebase.initializeApp(fireSettings.config)
 
-			const fireAuth = firebase.auth()
-			const fireDb = firebase.database()
+			const fireAuth = fireApp.auth()
+			const fireDb = fireApp.database()
 			const contentRef = fireDb.ref('content')
 
 			var setContentEntry = function(data) {

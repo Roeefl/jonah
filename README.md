@@ -1,6 +1,6 @@
-# jonah
+# Jonah
 
-> Group dump app
+> Group Stash
 
 ## Build Setup
 
