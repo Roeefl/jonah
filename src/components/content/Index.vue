@@ -1,10 +1,11 @@
 <template>
-	<div class="items" :ref="content">
-		<ul>
+	<div class="items">
+		<ul v-if="content.length > 0">
 			<Item v-for="item in content"
 						:item="item" >
 			</Item>
 		</ul>
+		<div v-else>{{NO_CONTENT}}</div>
 	</div>
 </template>
 
@@ -20,6 +21,7 @@
 		},
 		data () {
 			return {
+				NO_CONTENT: 'There is no content to show.',
 	  		content: []
 			}
 		},

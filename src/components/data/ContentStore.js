@@ -6,8 +6,23 @@ class ContentStore {
 		// Firebase refs
     const fireDb = firebase.database()
     const contentRef = fireDb.ref('content')
-    
+
     this.attachFirebaseListeners()
+	}
+
+	// Push a new Item into firebase
+	createItem( {title = '', snippet = '', type = '', tags = '', fires = []} ) {
+	  contentRef.push( {
+		  title: title,
+		  snippet: snippet,
+		  type: type,
+		  tags: tags,
+		  fires: []
+		}).then(function() {
+		  console.log('Success pushing '+title+' to content')
+		}.bind(this)).catch(function (error) {
+		  console.log('Error writing '+title+' to firebase DB: ' + error)
+		})
 	}
 
  // attach listeners to Firebase

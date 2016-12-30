@@ -21,20 +21,6 @@
         if ( this.title.trim() ) {
           const fireDb = firebase.database()
           const contentRef = fireDb.ref('content')
-
-          contentRef.push( {
-            title: this.title,
-            snippet: this.snippet,
-            type: 'movie',
-            tags: 'tag1',
-            fires: []
-          }).then(function() {
-            console.log('pushed ' + this.title + ' to content')
-            this.title = ''
-            this.snippet = ''
-          }.bind(this)).catch(function (error) {
-            console.log('Error writing new entry to firebase DB: ' + error)
-          })
         }
       }
     }
