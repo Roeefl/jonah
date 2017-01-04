@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import firebase from 'firebase'
+  import ContentStore from '../../data/ContentStore.js'
 
   export default {
     data () {
@@ -19,8 +19,14 @@
     methods: {
       createItem () {
         if ( this.title.trim() ) {
-          const fireDb = firebase.database()
-          const contentRef = fireDb.ref('content')
+          let newItem = {
+            title: this.title,
+            snippet: this.snippet,
+            type: 'content',
+            tags: '',
+            fires: []
+          }
+          contentStore.createItem(newItem)
         }
       }
     }
@@ -37,26 +43,26 @@
     border-radius: 2px;
     box-shadow: 0 1px 5px #ccc;
   }
-  form.create-item input {
-    width: 100%;
-    border: none;
-    padding: 4px;
-    outline: none;
-  }
-  form.create-item button {
-    position: absolute;
-    right: 18px;
-    bottom: -18px;
-    background: #41b883;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    cursor: pointer;
-    outline: none;
-  }
+    form.create-item input {
+      width: 100%;
+      border: none;
+      padding: 4px;
+      outline: none;
+    }
+    form.create-item button {
+      position: absolute;
+      right: 18px;
+      bottom: -18px;
+      background: #41b883;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      cursor: pointer;
+      outline: none;
+    }
     form.create-item .input-item-title {
       font-size: 1.4em;
     }

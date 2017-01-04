@@ -1,20 +1,28 @@
 <template>
   <div id="app">
-    <img id="logo" :class="{'animated-logo': isAnimated}" src="./assets/stash.svg" @click="toggleAnimation()">
-    <CreateItem></CreateItem>
+    <GithubCorner url="https://github.com/Roeefl/jonah"
+                  :size='100'
+                  cornerColor='#000'
+                  gitColor='#eee'
+                  flipOnHover >
+    </GithubCorner>
+    <img id="logo" :class="{'animated-logo': isAnimated}" src="../assets/stash.svg" @click="toggleAnimation()">
+    <CreateItem></CreateItem> 
     <Index></Index>
   </div>
 </template>
 
 <script>
-  import Index from './components/content/Index'
-  import CreateItem from './components/content/Create'
+  import Index from './content/Index'
+  import CreateItem from './content/Create'
+  import GithubCorner from 'vue-github-corners'
 
   export default {
     name: 'app',
     components: {
       Index,
-      CreateItem
+      CreateItem,
+      GithubCorner
     },
     data () {
       return {
@@ -30,15 +38,15 @@
 </script>
 
 <style>
-  *{
+  * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
-  html{
+  html {
     font-family: sans-serif;
   }
-  body{
+  body {
     background: #eee;
     padding: 0 16px;
   }
@@ -48,7 +56,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
     margin-top: 60px;
     color: #000;
   }
@@ -60,8 +67,8 @@
     cursor: pointer;
   }
   .animated-logo {
-    /* animation: App-logo-spin 10s linear;
-    animation-iteration-count: infinite; */
+    /*animation: App-logo-spin 10s linear;
+    animation-iteration-count: infinite;*/
   }
     @keyframes App-logo-spin {
       0% { transform: rotate(360deg); }

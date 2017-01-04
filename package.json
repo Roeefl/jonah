@@ -17,6 +17,8 @@
     "isotope-layout": "^3.0.1",
     "masonry-layout": "^4.1.1",
     "vue": "^2.1.0",
+    "vue-github-corners": "^1.2.2",
+    "vue-instant": "0.0.5",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.1.1",
     "vue-svg-sprite": "0.0.2"
