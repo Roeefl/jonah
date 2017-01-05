@@ -2,6 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './components/App'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
 
 // const chatRef = db.ref('chat')
 // const logRef = db.ref('log')

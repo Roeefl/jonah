@@ -17,7 +17,7 @@
       }
     },
     methods: {
-      createItem () {
+      createItem: function() {
         if ( this.title.trim() ) {
           let newItem = {
             title: this.title,
@@ -26,7 +26,10 @@
             tags: '',
             fires: []
           }
-          contentStore.createItem(newItem)
+          ContentStore.pushItem(newItem)
+          
+          this.title = ''
+          this.snippet = ''
         }
       }
     }

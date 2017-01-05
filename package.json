@@ -21,7 +21,8 @@
     "vue-instant": "0.0.5",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.1.1",
-    "vue-svg-sprite": "0.0.2"
+    "vue-svg-sprite": "0.0.2",
+    "vuex": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
