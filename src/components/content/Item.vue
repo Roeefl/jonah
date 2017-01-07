@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div class="item" @click="select">
     <h1>
       <i class="material-icons md-18 md-fire">spa</i>
       {{item.title}}
@@ -8,7 +8,7 @@
     <button type="button" @click.stop="remove" class="remove">
       <i class="material-icons md-18">delete_sweep</i>
     </button>
-    <button type="button" @click="select" class="edit">
+    <button type="button" class="edit">
       <i class="material-icons md-18">create</i>
     </button>
   </div>

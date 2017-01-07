@@ -1,6 +1,6 @@
 <template>
   <div v-if="itemKey" transition="modal" class="backdrop" @click="dismissModal">
-    <form class="edit-item" @submit.prevent="updateItem()" @click.stop="">
+    <form class="edit-item" @submit.prevent="updateItem()" @click.stop="" @keyup.esc="dismissModal">
       <input name="title" v-model="newTitle" placeholder="Title" />
       <input name="snippet" v-model="newSnippet" placeholder="ay a few words about this..." />
       <button type="button" @click="remove">

@@ -3,8 +3,10 @@
 import Vue from 'vue'
 import App from './components/App'
 import Vuex from 'vuex'
+import VueFire from 'vuefire'
 
 Vue.use(Vuex)
+Vue.use(VueFire)
 
 // const chatRef = db.ref('chat')
 // const logRef = db.ref('log')

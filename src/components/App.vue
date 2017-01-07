@@ -6,6 +6,7 @@
                   gitColor='#eee'
                   flipOnHover >
     </GithubCorner>
+    <Alerts :alerts="alerts"></Alerts>
     <img id="logo" :class="{'animated-logo': isAnimated}" src="../assets/stash.svg" @click="toggleAnimation()">
     <CreateItem></CreateItem> 
     <Index></Index>
@@ -15,6 +16,7 @@
 <script>
   import Index from './content/Index'
   import CreateItem from './content/Create'
+  import Alerts from './Alerts'
   import GithubCorner from 'vue-github-corners'
 
   export default {
@@ -22,12 +24,17 @@
     components: {
       Index,
       CreateItem,
+      Alerts,
       GithubCorner
     },
     data () {
       return {
+        alerts: [],
         isAnimated: true
       }
+    },
+    Created: function() {
+      
     },
     methods: {
       toggleAnimation: function() {
