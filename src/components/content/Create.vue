@@ -7,8 +7,6 @@
 </template>
 
 <script>
-  import ContentStore from '../../data/ContentStore.js'
-
   export default {
     data () {
       return {

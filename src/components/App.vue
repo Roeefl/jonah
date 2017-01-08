@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div id="app">
     <GithubCorner url="https://github.com/Roeefl/jonah"
                   :size='100'
@@ -33,7 +33,7 @@
         isAnimated: true
       }
     },
-    Created: function() {
+    created: function() {
       
     },
     methods: {

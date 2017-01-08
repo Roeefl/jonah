@@ -1,9 +1,9 @@
 <template>
-  <div v-if="itemKey" transition="modal" class="backdrop" @click="dismissModal">
+  <div v-if="item" transition="modal" class="backdrop" @click="dismissModal">
     <form class="edit-item" @submit.prevent="updateItem()" @click.stop="" @keyup.esc="dismissModal">
-      <input name="title" v-model="newTitle" placeholder="Title" />
-      <input name="snippet" v-model="newSnippet" placeholder="ay a few words about this..." />
-      <button type="button" @click="remove">
+      <input name="title" v-model="updatingTitle" placeholder="Title" />
+      <input name="snippet" v-model="updatingSnippet" placeholder="ay a few words about this..." />
+      <button type="button" @click="removeItem">
         <i class="material-icons md-18">delete_sweep</i>
       </button>
       <button type="submit">Done</button>
@@ -12,37 +12,38 @@
 </template>
 
 <script>
-  import ContentStore from '../../data/ContentStore.js'
-
   export default {
     props: ['item'],
-    data() {
+    data () {
       return {
-        itemKey: null,
-        newTitle: null,
-        newSnippet: null
+        updatingTitle: null,
+        updatingSnippet: null
       }
     },
     watch: {
       item: function(newItem) {
-        this.itemKey = newItem.key
-        this.newTitle = newItem.title
-        this.newSnippet = newItem.snippet
+        if (newItem) {
+          this.initUpdatedItem(newItem)
+        }
       }
     },
     methods: {
-      remove: function() {
-        ContentStore.removeItem(this.itemKey)
+      initUpdatedItem(newItem) {
+        this.updatingTitle = newItem.title
+        this.updatingSnippet = newItem.snippet
+      },
+      removeItem: function() {
+        this.$store.commit('removeItem', this.item.key)
         this.dismissModal()
       },
       updateItem: function() {
-        ContentStore.updateItem(this.itemKey, {title: this.newTitle, snippet: this.newSnippet} )
+        this.$store.commit('updateItem', this.item.key, this.updatingTitle, this.updatingSnippet )
         this.dismissModal()
       },
       dismissModal () {
-        this.itemKey = null
-        this.newTitle = null
-        this.newSnippet = null
+        this.updatingTitle = null
+        this.setUpdatingSnippet = null
+        this.$store.commit('nullifySelectedContentItem')
       }
     }
   }
